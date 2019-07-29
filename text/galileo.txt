@@ -1,0 +1,7 @@
+<h3><b>Galileo</b></h3> 
+Galileo-Time starts 22. August 1999 at 00:00:00<br>
+Galileo week number WN(since 22. August 1999 at 00:00:00)0-4096<br>
+Galileo time of week TOW (seconds of week 0-604799)<br>
+
+
+

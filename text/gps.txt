@@ -1,0 +1,27 @@
+<h3><b>GPS</b></h3> 
+GPS-Time starts 6. January 1980 at 00:00:00<br>
+GPS week (since 6. January 1980 at 00:00:00)<br>
+GPS second (seconds of week)<br>
+GPS day (DOY Day of year)<br>
+<br>
+LeapSeconds:<br>
+30. June 1981<br>
+30. June 1982<br>
+30. June 1983<br>
+30. June 1985<br>
+31. December 1987<br>
+31. December 1989<br>
+31. December 1990<br>
+30. June 1992<br>
+30. June 1993<br>
+30. June 1994<br>
+31. December 1995<br>
+30. June 1997<br>
+31. December 1998<br>
+31. December 2005<br>
+31. December 2008<br>
+30. June 2012<br>
+30. June 2015<br>
+31. December 2016<br>
+
+

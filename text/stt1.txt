@@ -1,0 +1,9 @@
+<h3><b>Startime 1</b></h3> 
+Star Trek time refering to the first<br>
+warp flight of ZEFRAN COCHRANE 2063<br>
+one year is splitted in 1000 parts<br>
+one year consists of 365.2564 days<br>
+
+
+
+

@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>zeit</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=320 , height=480  , initial-scale=1.01 , maximum-scale=1.01, minimum-scale=1.01, user-scalable=no"/>
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="format-detection" content="telephone=no"/>
+		<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+
+		<link rel="apple-touch-icon-precomposed" href="bilder/time_72.png" sizes="72x72" />
+		<link rel="apple-touch-icon-precomposed" href="bilder/time_144.png" sizes="144x144" />
+		<link rel="apple-touch-icon-precomposed" href="bilder/time_114.png" sizes="114x114" />
+		<link rel="apple-touch-icon-precomposed" href="bilder/time_120.png" sizes="120x120" />
+		<link rel="apple-touch-icon-precomposed" href="bilder/time_180.png" sizes="180x180" />
+		<link rel="apple-touch-icon-precomposed" href="bilder/time_57.png" />
+  		<link rel="manifest" href="manifest.json">
+
+		<script src="javascript/jquery-2.2.0.min.js" type="text/javascript"></script>
+		<script src="javascript/chui-3.9.2.min.js" type="text/javascript"></script>
+
+		<link href="styles/reset.css" rel="stylesheet" type="text/css">
+		<link href="styles/styles.css" rel="stylesheet" type="text/css">
+		<link href="styles/chui-ios-3.9.2.min.css" rel="stylesheet" type="text/css">
+
+
+	</head>
+
+	<body onload=init();timerThread()>
+		<nav>
+			<h1>ZEIT</h1>
+	    </nav>
+
+		<article id="locale" class="current">
+			<section>
+				<ul class="list">
+					<li class='comp' >
+						<div style="text-align: center">
+							<h2>local</h2>
+							<p>Locale time</p>
+						</div>
+						<aside>
+							<button id='touchLocal' class='show-detail'></button>
+						</aside>
+				</li>
+				</ul>
+				<ul class="list">
+					<li class='comp' >
+					<TABLE  border="10" cellPadding="0" cellSpacing="0">
+
+						<tr>
+							<td> <INPUT  class="einheit" value="year" readonly> </td>
+							<td> <INPUT  class="einheit" value="month" readonly> </td>
+							<td> <INPUT  class="einheit" value="day" readonly> </td>
+						</tr>
+						<tr id="datum" >
+							<td> <INPUT class="wert" id="Locale_year"  value="wait..." readonly> </td>
+							<td> <INPUT class="wert" id="Locale_month"   value="wait..."  readonly> </td>
+							<td> <INPUT class="wert" id="Locale_day"   value="wait..." readonly> </td>
+
+						</tr>
+						<tr>
+							<td> <INPUT  class="einheit"  value="hour" readonly> </td>
+							<td> <INPUT  class="einheit"  value="min" readonly> </td>
+							<td> <INPUT  class="einheit"  value="sec" readonly> </td>
+
+						</tr>
+						<tr id="zeit">
+							<td> <INPUT  class="wert" id="Locale_hour"   value="wait..." readonly> </td>
+							<td> <INPUT  class="wert" id="Locale_minute"   value="wait..." readonly> </td>
+							<td> <INPUT  class="wert" id="Locale_second"   value="wait..." readonly> </td>
+						</tr>
+						<tr>
+							<td> <INPUT class="einheit" id="Locale_timezone" value="wait..." readonly> </td>
+							<td > </td>
+							<td >  </td>
+						</tr>
+					</TABLE>
+				</li>
+				</ul>
+				</section>
+		</article>
+
+		<nav>
+			<h1>ZEIT</h1>
+	    </nav>
+		<article id="utc" class="current">
+			<section>
+				<ul class="list">
+					<li class='comp' >
+						<div style="text-align: center">
+							<h2>UTC</h2>
+							<p>Universal Time Coordinated </p>
+						</div>
+						<aside>
+							<button id='touchUTC' class='show-detail'></button>
+						</aside>
+				</li>
+				</ul>
+				<ul class="list">
+					<li class='comp' >
+					<TABLE  border="10" cellPadding="0" cellSpacing="0">
+
+						<tr>
+							<td> <INPUT  class="einheit" value="year"  readonly> </td>
+							<td> <INPUT  class="einheit" value="month" readonly> </td>
+							<td> <INPUT  class="einheit" value="day" readonly> </td>
+						</tr>
+						<tr id="datumutc">
+							<td> <INPUT class="wert" id="UTC_year"   value="wait..." readonly> </td>
+							<td> <INPUT class="wert" id="UTC_month"   value="wait..." readonly> </td>
+							<td> <INPUT class="wert" id="UTC_day"   value="wait..." readonly> </td>
+						</tr>
+						<tr>
+							<td> <INPUT  class="einheit"  value="hour" readonly> </td>
+							<td> <INPUT  class="einheit"  value="min" readonly> </td>
+							<td> <INPUT  class="einheit"  value="sec" readonly> </td>
+						</tr>
+						<tr id="zeitutc">
+							<td> <INPUT  class="wert" id="UTC_hour"   value="wait..." readonly> </td>
+							<td> <INPUT  class="wert" id="UTC_minute"   value="wait..." readonly> </td>
+							<td> <INPUT  class="wert" id="UTC_second"   value="wait..." readonly> </td>
+						</tr>
+
+					</TABLE>
+				</li>
+				</ul>
+				</section>
+		</article>
+		<nav>
+			<h1>ZEIT</h1>
+	    </nav>
+		<article id="mjd" class="current">
+			<section>
+				<ul class="list">
+					<li class='comp' >
+						<div style="text-align: center">
+							<h2>MJD</h2>
+							<p>Modified Julian Date</p>
+						</div>
+						<aside>
+							<button id='touchMJD' class='show-detail'></button>
+						</aside>
+				</li>
+				</ul>
+				<ul class="list">
+					<li class='comp' >
+					<TABLE  border="10" cellPadding="0" cellSpacing="0">
+
+
+						<tr>
+							<td> <INPUT class="wert" id="MJD"   value="wait..." readonly> </td>
+
+						</tr>
+
+					</TABLE>
+
+				</section>
+		</article>
+		<nav>
+			<h1>ZEIT</h1>
+		</nav>
+		<article id="startime1" class="current">
+			<section>
+				<ul class="list">
+					<li class='comp' >
+						<div style="text-align: center">
+							<h2>Startime 1</h2>
+							<p>Star Trek Time</p>
+						</div>
+						<aside>
+							<button id='touchSTT1' class='show-detail'></button>
+						</aside>
+				</li>
+				</ul>
+				<ul class="list">
+					<li class='comp' >
+					<TABLE  border="10" cellPadding="0" cellSpacing="0">
+						<tr>
+							<td> <INPUT class="wert" id="STT1"   value="wait..." readonly> </td>
+						</tr>
+					</TABLE>
+					</li>
+				</ul>
+				</section>
+		</article>
+		<nav>
+			<h1>ZEIT</h1>
+		</nav>
+		<article id="startime2" class="current">
+			<section>
+				<ul class="list">
+					<li class='comp' >
+					<div style="text-align: center">
+						<h2>Startime 2</h2>
+						<p>Star Trek Time</p>
+					</div>
+					<aside>
+						<button id='touchSTT2' class='show-detail'></button>
+					</aside>
+				</li>
+				</ul>
+				<ul class="list">
+					<li class='comp' >
+					<TABLE  border="10" cellPadding="0" cellSpacing="0">
+						<tr>
+							<td> <INPUT class="wert" id="STT2"   value="wait..." readonly> </td>
+						</tr>
+					</TABLE>
+				</li>
+				</ul>
+				</section>
+		</article>
+		<nav>
+			<h1>ZEIT</h1>
+	    </nav>
+		<article id="gps" class="current">
+			<section>
+				<ul class="list">
+					<li class='comp' >
+						<div style="text-align: center">
+							<h2>GPS</h2>
+							<p>GPS Time</p>
+						</div>
+					<aside>
+						<button id='touchGPS' class='show-detail'></button>
+					</aside>
+				</li>
+				</ul>
+				<ul class="list">
+					<li class='comp' >
+					<TABLE  border="10" cellPadding="0" cellSpacing="0">
+
+							<tr>
+								<td colspan="3">
+								<TABLE  id="touchGPSChange" border="10" cellPadding="0" cellSpacing="0">
+									<tr>
+										<td> <INPUT class="einheit" value="week" readonly> </td>
+									</tr>
+									<tr>
+										<td> <INPUT class="wert" id="GPS_week" value="wait..." readonly> </td>
+									</tr>
+									<tr>
+										<td> <INPUT class="einheit" value="day" readonly> </td>
+									</tr>
+									<tr>
+										<td> <INPUT class="wert" id="GPS_day" value="wait..." readonly> </td>
+									</tr>
+									<tr>
+										<td> <INPUT class="einheit" value="sec" readonly> </td>
+									</tr>
+									<tr>
+										<td> <INPUT class="wert" id="GPS_second" value="wait..." readonly> </td>
+									</tr>
+								</TABLE>
+								</td>
+							</tr>
+
+
+							<tr>
+								<td colspan="3"> <INPUT class="einheit" id="GPS_leap" value="wait..." readonly> </td>
+							</tr>
+					</TABLE>
+				</li>
+				</ul>
+			</section>
+		</article>
+		<nav>
+			<h1>ZEIT</h1>
+	    </nav>
+		<article id="glonass" class="current">
+			<section>
+				<ul class="list">
+					<li class='comp' >
+						<div style="text-align: center">
+							<h2>GLONASS</h2>
+							<p>GLONASS Time</p>
+						</div>
+					<aside>
+						<button id='touchGlonass' class='show-detail'></button>
+					</aside>
+				</li>
+				</ul>
+				<ul class="list">
+					<li class='comp' >
+					<TABLE  border="10" cellPadding="0" cellSpacing="0">
+
+							<tr>
+								<td colspan="3">
+								<TABLE  border="10" cellPadding="0" cellSpacing="0">
+									<tr>
+										<td> <INPUT class="einheit" value="day" readonly> </td>
+									</tr>
+									<tr>
+										<td> <INPUT class="wert" id="Glonass_day" value="wait..." readonly> </td>
+									</tr>
+									<tr>
+										<td> </td>
+									</tr>
+									<tr>
+										<td> <INPUT class="einheit" value="sec" readonly> </td>
+									</tr>
+									<tr>
+										<td> <INPUT class="wert" id="Glonass_second" value="wait..." readonly> </td>
+									</tr>
+								</TABLE>
+								</td>
+							</tr>
+					</TABLE>
+				</li>
+				</ul>
+			</section>
+		</article>
+		<nav>
+			<h1>ZEIT</h1>
+	    </nav>
+		<article id="galileo" class="current">
+					<section>
+						<ul class="list">
+							<li class='comp' >
+								<div style="text-align: center">
+									<h2>GALILEO</h2>
+									<p>GALILEO Time</p>
+								</div>
+								<aside>
+									<button id='touchGalileo' class='show-detail'></button>
+								</aside>
+							</li>
+						</ul>
+						<ul class="list">
+							<li class='comp' >
+							<TABLE  border="10" cellPadding="0" cellSpacing="0">
+
+									<tr>
+										<td colspan="3">
+										<TABLE  border="10" cellPadding="0" cellSpacing="0">
+											<tr>
+												<td> <INPUT class="einheit" value="week" readonly> </td>
+											</tr>
+											<tr>
+												<td> <INPUT class="wert" id="Galileo_week" value="wait..." readonly> </td>
+											</tr>
+											<tr>
+												<td> </td>
+											</tr>
+											<tr>
+												<td> <INPUT class="einheit" value="sec" readonly> </td>
+											</tr>
+											<tr>
+												<td> <INPUT class="wert" id="Galileo_second" value="wait..." readonly> </td>
+											</tr>
+										</TABLE>
+										</td>
+									</tr>
+							</TABLE>
+						</li>
+						</ul>
+					</section>
+		</article>
+		<nav>
+			<h1>ZEIT</h1>
+	    </nav>
+		<article id="beidou" class="current">
+			<section>
+			<ul class="list">
+				<li class='comp' >
+					<div style="text-align: center">
+						<h2>BEIDOU</h2>
+						<p>BEIDOU Time</p>
+					</div>
+					<aside>
+						<button id='touchBeidou' class='show-detail'></button>
+					</aside>
+				</li>
+				</ul>
+				<ul class="list">
+					<li class='comp' >
+					<TABLE  border="10" cellPadding="0" cellSpacing="0">
+
+							<tr>
+								<td colspan="3">
+								<TABLE  border="10" cellPadding="0" cellSpacing="0">
+									<tr>
+										<td> <INPUT class="einheit" value="week" readonly> </td>
+									</tr>
+									<tr>
+										<td> <INPUT class="wert" id="Beidou_week" value="wait..." readonly> </td>
+									</tr>
+									<tr>
+										<td> </td>
+									</tr>
+									<tr>
+										<td> <INPUT class="einheit" value="sec" readonly> </td>
+									</tr>
+									<tr>
+										<td> <INPUT class="wert" id="Beidou_second" value="wait..." readonly> </td>
+									</tr>
+								</TABLE>
+								</td>
+							</tr>
+					</TABLE>
+					</li>
+				</ul>
+			</section>
+		</article>
+
+		<footer>
+			<input class="real" id="time" value="history >"  readonly/>
+		</footer>
+	<script>
+
+			var timestate=0;
+			var show="local";
+			var lastdate=new Date();
+			var localField=0;
+			var utcField=0;
+			var gpsField=0;
+			var gpsPressed=0;
+			var multiple=0;
+			var dateValue=null;
+
+			if ('serviceWorker' in navigator) {
+
+			  navigator.serviceWorker.register('service-worker.js').then(function(registration) {
+			    alert( 'ServiceWorker wurde registriert:', registration.scope);
+			   }
+			  ).catch(function(err) {
+			    alert( 'ServiceWorker wurde leider nicht registriert.', err);
+
+			 });
+			}
+			 // Division with integer truncation.
+			    function idiv (n, d) { return Math.floor(n / d); }
+
+			    function getCurrYear (date) {
+			        var year = date.getYear();
+			        if (year < 1900){
+			        	year += 1900;
+			        }
+			        return year;
+			    }
+
+			    function getCurrMonth (date) {
+			        return date.getMonth() + 1;
+			    }
+
+			    function getLeapSeconds (date) {
+			        var yyyymm = getCurrYear(date) * 100 + getCurrMonth(date);
+			        if ( yyyymm >= 201701 ) return 37;
+			        if ( yyyymm >= 201507 ) return 36;
+			        if ( yyyymm >= 201207 ) return 35;
+			        if ( yyyymm >= 200901 ) return 34;
+			        if ( yyyymm >= 200601 ) return 33;
+			        if ( yyyymm >= 199901 ) return 32;
+			        if ( yyyymm >= 199707 ) return 31;
+			        if ( yyyymm >= 199601 ) return 30;
+			    }
+
+			    function getGPSLeapSeconds(date){
+			    	return "LeapSeconds: " + (getLeapSeconds(date)-19);
+			    }
+
+			    // Get elapsed seconds since midnight.
+			    function getElapsed (date) {
+			        var hours = date.getHours();
+			        var minutes = date.getMinutes();
+			        var seconds = date.getSeconds();
+			        var elapsed = (((hours * 60) + minutes) * 60) + seconds;
+			        return elapsed;
+			    }
+
+			    function getGlonassSecond(date){
+			    	return getElapsed (date);
+			    }
+
+			    function getGlonassDay(date){
+			    	var year=getCurrYear(date);
+			    	var doy=getDOY(date);
+			    	if(isLeapYear(year)){
+			    		return doy;
+			    	}else{
+			    		year=year-1;
+			    		if(isLeapYear(year)){
+			    			return (doy+365);
+			    		}else {
+			    			year=year-1;
+							if(isLeapYear(year)){
+								return (doy+(2*365));
+							}else {
+								year=year-1;
+								if(isLeapYear(year)){
+									return (doy+(3*365));
+								}
+			    			}
+			    		}
+			    	}
+			    }
+
+				function isLeapYear(yr){
+				 	if (yr > 1582) return !((yr % 4) || (!(yr % 100) && (yr % 400)));
+				  	if (yr >= 0) return !(yr % 4);
+				  	if (yr >= -45) return !((yr + 1) % 4);
+				  	return false;
+				}
+
+			    function getMJD1 (date) {
+			        var year = getCurrYear(date);
+			        var month = getCurrMonth(date);
+			        var day = date.getDate();
+			        return getMJD3(year, month, day);
+			    }
+
+			    function getMJD3 (year, month, day) {
+			        var mjd =
+			        367 * year
+			        - idiv(7 * (idiv(month + 9, 12) + year), 4)
+			        - idiv(3 * (idiv(idiv(month + 9, 12) + year - 1, 100) + 1), 4)
+			        + idiv(275 * month, 9)
+			        + day
+			        + 1721028
+			        - 2400000;
+			        return mjd;
+			    }
+
+			    function getDOY (date) {
+			        var year = getCurrYear(date);
+			        return getMJD1(date) - getMJD3(year, 1, 1) + 1;
+			    }
+
+			     function getYear (date) {
+				    return fixed4(getCurrYear(date));
+			     }
+
+			     function getMonth(date) {
+			     	    return fixed2(getCurrMonth(date));
+			     }
+			     function getDay(date) {
+				    return fixed2(date.getDate());
+			     }
+			     function getHour(date) {
+			     	    return fixed2(date.getHours());
+
+			     }
+			     function getMinute(date) {
+			            return fixed2(date.getMinutes());
+			     }
+			     function getSecond(date) {
+			            return fixed2(date.getSeconds());
+			     }
+
+			     function getGPSWeek (date) {
+			            var gpsDayCount = getMJD1(date) - getMJD3(1980, 1, 6);
+			            return  Math.floor(gpsDayCount / 7);
+			     }
+
+			     function getGPSDay (date) {
+			     	return getDOY(date);
+			     }
+
+			     function getGPSSecond (date) {
+				     var gpsDayCount = getMJD1(date) - getMJD3(1980, 1, 6);
+				     var gpsDay = gpsDayCount % 7;
+				     return (gpsDay * 86400) + getElapsed(date);
+			     }
+
+			     function getGPSDate(week, second){
+			     		var startDate= new Date("January 6, 1980 00:00:00");
+
+						var weekMillis=7*24*60*60;
+						for(i=0;i<week;i++){
+							startDate.setTime(startDate.getTime() + (weekMillis*1000));
+						}
+						startDate.setTime(startDate.getTime() + (1*60*60*1000));
+			     		startDate.setTime(startDate.getTime() + (second*1000));
+			     		var leap=getLeapSeconds(startDate);
+			     		startDate.setTime(startDate.getTime() - (leap*1000));
+						return startDate;
+			     }
+
+			     function getBeidouWeek (date) {
+					 var beidouDayCount = getMJD1(date) - getMJD3(2006, 1, 1);
+					 return  Math.floor(beidouDayCount / 7);
+				 }
+
+				 function getBeidouSecond (date) {
+					 var beidouDayCount = getMJD1(date) - getMJD3(2006, 1, 1);
+					 var beidouDay = beidouDayCount % 7;
+					 return (beidouDay * 86400) + getElapsed(date);
+			     }
+
+			     function getGalileoWeek (date) {
+					 var galileoDayCount = getMJD1(date) - getMJD3(2006, 22, 08);
+					 return  Math.floor(galileoDayCount / 7);
+				 }
+
+				 function getGalileoSecond (date) {
+					 var galileoDayCount = getMJD1(date) - getMJD3(2006, 22, 08);
+					 var galileoDay = galileoDayCount % 7;
+					 return (galileoDay * 86400) + getElapsed(date);
+			     }
+
+				 function getHourLetter(date){
+				 	var hour=getHour(date);
+				 	var myLetters=new Array("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y");
+					var h=parseInt(hour);
+					return myLetters[h];
+				 }
+
+
+				 function getMonthLetter(date){
+				 	var month=getMonth(date);
+				 	var myMonth=new Array("Januar","Februar","March","April","May","June","July","August","September","October","November","December");
+					var m=parseInt(month);
+					return myMonth[m-1];
+				 }
+
+			    function showTimezone (date) {
+			        if (date.getTimezoneOffset() > 0) {
+			            return "UTC-" + date.getTimezoneOffset( ) / 60;
+
+			        } else {
+			            return "UTC+" + date.getTimezoneOffset( ) / -60;
+			        }
+			    }
+
+
+				function getStartime1(date){
+					var year=parseInt(getYear(date));
+					var doy =parseInt(getDOY(date));
+					var min =parseInt(getMinute(date));
+					var hour= parseInt(getHour(date));
+					var second= parseInt(getSecond(date));
+					var jahreslaenge  = 365.2564;
+
+					//BERECHNEN DER STERNZEIT ANHAND DES JAHRES DES ERSTEN WARP-FLUGES VON ZEFRAN COCHRANE
+					var sternzeit = 1000 * (year + (1 / jahreslaenge * (doy  + hour/24 + min/1440+ second/86400)) - 2063.0);
+					sternzeit=parseFloat(sternzeit);
+					return sternzeit.toFixed(5);
+				}
+
+				function getStartime2(date){
+					var year=parseInt(getYear(date));
+					var doy =parseInt(getDOY(date));
+					var min =parseInt(getMinute(date));
+					var hour= parseInt(getHour(date));
+					var second= parseInt(getSecond(date));
+					var jahreslaenge  = 365.2564;
+
+					//BERECHNEN DER STERNZEIT ANHAND TNG-BASE
+					var sternzeit = 1000 * ((year + 1 / jahreslaenge * (doy  + hour/24 + min/1440+ second/86400)) - 2323);
+					sternzeit=parseFloat(sternzeit);
+					return sternzeit.toFixed(5);
+				}
+
+
+
+			    function fixed2 (n) {
+			        return (n < 10 ? "0" : "") + n;
+			    }
+			    function fixed3 (n) {
+			        n = fixed2(n);
+			        return (n < 100 ? "0" : "") + n;
+			    }
+			    function fixed4 (n) {
+			        n = fixed3(n);
+			        return (n < 1e3 ? "0" : "") + n;
+			    }
+			    function fixed5 (n) {
+			        n = fixed4(n);
+			        return (n < 1e4 ? "0" : "") + n;
+			    }
+
+			    var timerID = null;
+			    var timerRunning = false;
+
+			    // Main 1 Hz timer callback.
+
+			    function displayTime () {
+
+			        var local=null;
+			        if(timestate==0){
+			        	local = new Date();
+			        	lastdate=local;
+			        }else{
+			        	local=lastdate;
+			        }
+			        utc = new Date(local.getTime() + local.getTimezoneOffset() * 60 * 1000);
+			        tai = new Date(utc.getTime() + (getLeapSeconds(utc) * 1000));
+			        gps = new Date(tai.getTime() - (19 * 1000));
+
+			        //update locale time
+
+ 					if(timestate==1){
+						document.getElementById('Locale_year').style.color = '#318ce9';
+						document.getElementById('Locale_month').style.color = '#318ce9';
+						document.getElementById('Locale_day').style.color = '#318ce9';
+						document.getElementById('Locale_hour').style.color = '#318ce9';
+						document.getElementById('Locale_minute').style.color = '#318ce9';
+			        	document.getElementById('Locale_second').style.color = '#318ce9';
+
+			        	document.getElementById('UTC_year').style.color = '#318ce9';
+						document.getElementById('UTC_month').style.color = '#318ce9';
+						document.getElementById('UTC_day').style.color = '#318ce9';
+						document.getElementById('UTC_hour').style.color = '#318ce9';
+						document.getElementById('UTC_minute').style.color = '#318ce9';
+			        	document.getElementById('UTC_second').style.color = '#318ce9';
+
+			        	document.getElementById('GPS_week').style.color = '#318ce9';
+						document.getElementById('GPS_day').style.color = '#318ce9';
+						document.getElementById('GPS_second').style.color = '#318ce9';
+
+						document.getElementById('GPS_weeke').style.color = '#318ce9';
+						document.getElementById('GPS_seconde').style.color = '#318ce9';
+
+					}else{
+						document.getElementById('Locale_year').style.color = 'black';
+						document.getElementById('Locale_month').style.color = 'black';
+						document.getElementById('Locale_day').style.color = 'black';
+						document.getElementById('Locale_hour').style.color = 'black';
+						document.getElementById('Locale_minute').style.color = 'black';
+			        	document.getElementById('Locale_second').style.color = 'black';
+
+			        	document.getElementById('UTC_year').style.color = 'black';
+						document.getElementById('UTC_month').style.color = 'black';
+						document.getElementById('UTC_day').style.color = 'black';
+						document.getElementById('UTC_hour').style.color = 'black';
+						document.getElementById('UTC_minute').style.color = 'black';
+						document.getElementById('UTC_second').style.color = 'black';
+
+						document.getElementById('GPS_week').style.color = 'black';
+						document.getElementById('GPS_day').style.color = 'black';
+						document.getElementById('GPS_second').style.color = 'black';
+			        }
+			        document.getElementById('Locale_year').value = getYear(local);
+			        document.getElementById('Locale_month').value = getMonthLetter(local);
+			        document.getElementById('Locale_day').value = getDay(local);
+
+			        document.getElementById('Locale_hour').value = getHour(local);
+					document.getElementById('Locale_minute').value = getMinute(local);
+			        document.getElementById('Locale_second').value = getSecond(local);
+
+			        document.getElementById('Locale_timezone').value = showTimezone(local);
+
+
+			        //update UTC time
+					document.getElementById('UTC_year').value = getYear(utc);
+			        document.getElementById('UTC_month').value = getMonthLetter(utc);
+			        document.getElementById('UTC_day').value = getDay(utc);
+
+			        document.getElementById('UTC_hour').value = getHour(utc)+" ("+getHourLetter(utc)+")";
+					document.getElementById('UTC_minute').value = getMinute(utc);
+			        document.getElementById('UTC_second').value = getSecond(utc);
+
+			        //update MJD
+			        document.getElementById('MJD').value = "" + getMJD1(tai) +
+			          	"." + fixed5(Math.floor(getElapsed(utc) / 86400 * 1e5));
+
+					//update GPS time
+					document.getElementById('GPS_week').value = getGPSWeek(tai);
+					document.getElementById('GPS_day').value = getGPSDay(tai);
+					document.getElementById('GPS_second').value = getGPSSecond(tai);
+			       	document.getElementById('GPS_leap').value = getGPSLeapSeconds(utc);
+
+			       	//update GLONASS time
+					document.getElementById('Glonass_day').value = getGlonassDay(tai);
+					document.getElementById('Glonass_second').value = getGlonassSecond(tai);
+
+					//update GALILEO time
+					document.getElementById('Galileo_week').value = getGalileoWeek(tai);
+					document.getElementById('Galileo_second').value = getGalileoSecond(tai);
+
+					//update BEIDOU time
+					document.getElementById('Beidou_week').value = getBeidouWeek(tai);
+					document.getElementById('Beidou_second').value = getBeidouSecond(tai);
+
+					//update STERNZEIT1 time
+					document.getElementById('STT1').value = getStartime1(tai);
+
+
+					//update STERNZEIT2 time
+					document.getElementById('STT2').value = getStartime2(tai);
+
+				    //
+			        // Delay thread until next second trying to align the
+			        // display to within milliseconds of the PC clock.
+			        //
+					var ms = local.getTime() % 1000;
+			        if (ms > 500){
+			        	ms -= 1000;
+			        }
+			        if(timestate=="real"){
+			        	timerID = setTimeout("displayTime()", 1000 - ms);
+			        }else {
+			        	timerID = setTimeout("displayTime()", 10);
+			        }
+			        timerRunning = true;
+
+			    }
+
+			    function timerThread () {
+			        if (timerRunning) {
+			            clearTimeout(timerID);
+			            timerRunning = false;
+			        }
+
+			        displayTime();
+    			}
+
+
+				function init(){
+				 var touchen='touchstart';
+
+					  var desktop=false;
+					  if(desktop){
+						touchen='click';
+
+				  }
+
+					$.UISlideout();
+					$.UISlideout.populate([{locale:'Local'},{utc:'UTC'},{gps:'GPS'},{glonass:'GLONASS'},{galileo:'GALILEO'},{beidou:'BEIDOU'},{startime1:'STARTIME 1'},{startime2:'STARTIME 2'},{mjd:'MJD'}]);
+
+					var buttonTime=document.getElementById('time');
+				    buttonTime.addEventListener(touchen, timePress, true);
+				}
+
+
+				function timePress () {
+
+					var state=document.getElementById('time').value;
+					if(state=="history >"){
+						document.getElementById('time').value = "present >";
+						timestate=1
+
+					}else{
+						document.getElementById('time').value = "history >";
+						$.UIHideSheet('#datumSheet');
+						$.UIHideSheet('#timeSheet');
+						timestate=0
+					}
+				}
+				$(function() {
+				  $('#touchGPS').on('touchen', function(e) {
+				  		e.stopPropagation();
+						$.UIShowSheet("#gpsSheet");
+				  });
+				  $('#touchGlonass').on('touchen', function(e) {
+				  		e.stopPropagation();
+						$.UIShowSheet("#glonassSheet");
+				  });
+				  $('#touchLocal').on('touchen', function(e) {
+				  		e.stopPropagation();
+						$.UIShowSheet("#localSheet");
+				  });
+				  $('#touchMJD').on('touchen', function(e) {
+						$.UIShowSheet("#MJDSheet");
+						e.stopPropagation();
+				  });
+				   $('#touchUTC').on('singletap', function(e) {
+						$.UIShowSheet("#UTCSheet");
+						e.stopPropagation();
+				  });
+				   $('#touchGalileo').on('singletap', function(e) {
+				  		 e.stopPropagation();
+						$.UIShowSheet("#galileoSheet");
+				  });
+				   $('#touchBeidou').on('singletap', function(e) {
+				   		e.stopPropagation();
+						$.UIShowSheet("#beidouSheet");
+				  });
+				   $('#touchSTT1').on('singletap', function(e) {
+				   		e.stopPropagation();
+				    	$.UIShowSheet("#STT1Sheet");
+				  });
+				   $('#touchSTT2').on('singletap', function(e) {
+				   		e.stopPropagation();
+						$.UIShowSheet("#STT2Sheet");
+				  });
+				   $('#touchGPSChange').on('singletap', function(e) {
+						e.stopPropagation();
+						if(timestate==0){
+							return;
+						}
+						setEditGPSValues(lastdate);
+						$.UIShowSheet("#GPSChangeSheet");
+				  });
+
+
+				  $('#datum').on('singletap', function(e) {
+					e.stopPropagation();
+					if(timestate==0){
+						return;
+					}
+					setISODate(lastdate);
+					$.UIShowSheet("#datumSheet");
+				  });
+				  $('#zeit').on('singletap', function(e) {
+				  	e.stopPropagation();
+					if(timestate==0){
+						return;
+					}
+					setISOTime(lastdate);
+					$.UIShowSheet("#timeSheet");
+				  });
+				  $('#datumutc').on('singletap', function(e) {
+					e.stopPropagation();
+					if(timestate==0){
+						return;
+					}
+					setISODate(lastdate);
+					$.UIShowSheet("#datumSheetUTC");
+				  });
+				  $('#zeitutc').on('singletap', function(e) {
+					e.stopPropagation();
+					if(timestate==0){
+						return;
+					}
+					setISOTime(lastdate);
+					$.UIShowSheet("#timeSheetUTC");
+				  });
+				});
+
+				function getDateValue(){
+					var yyyy=getYear(lastdate);
+					var mm=getMonth(lastdate);
+					var dd=getDay(lastdate);
+					dateValue= yyyy+"-"+mm+"-"+dd;
+				}
+
+			function setEditGPSValues(){
+				var taiedit = lastdate ;
+				taiedit.setHours(taiedit.getUTCHours());
+				var leap=getLeapSeconds(taiedit) ;
+				taiedit.setSeconds(taiedit.getSeconds()+ leap);
+				document.getElementById('GPS_seconde').value = getGPSSecond(taiedit);
+				document.getElementById('GPS_weeke').value = getGPSWeek(taiedit);
+				document.getElementById('GPS_daye').value = getGPSDay(taiedit);
+			}
+
+
+			function  infoPopup(titleText, titleMessage){
+			  $.UIPopup({
+				selector: "#main",
+				id: "warning",
+				title: titleText,
+				message: 'titleMessage',
+
+    			continueButton: 'OK',
+
+			  });
+			}
+
+			function setISODate(d){
+				var currentDate = d.toISOString().slice(0,10);
+				document.getElementById('date_input').value = currentDate;
+			}
+			function setISOTime(t){
+				var currentTime = t.getHours() + ':' + t.getMinutes();
+				document.getElementById('time_input').value = currentTime;
+			}
+
+			$(function() {
+			  $.UISheet({id: 'gpsSheet'});
+			  $('#gpsSheet').find('section').append('<div style="text-align: left; padding:10px; background-color:white;background:white" id="gpstext"/>');
+			  $('#gpsSheet').on('singletap', 'button', function() {
+			    $.UIHideSheet('#gpsSheet');
+			  });
+			});
+			$(function() {
+			  $.UISheet({id: 'galileoSheet'});
+			  $('#galileoSheet').find('section').append('<div style="text-align: left; padding:10px; background-color:white;background:white" id="galileotext"/>');
+			  $('#galileoSheet').on('singletap', 'button', function() {
+				$.UIHideSheet('#galileoSheet');
+			  });
+			});
+			$(function() {
+			  $.UISheet({id: 'glonassSheet'});
+			  $('#glonassSheet').find('section').append('<div style="text-align: left; padding:10px; background-color:white;background:white" id="glonasstext"/>');
+			  $('#glonassSheet').on('singletap', 'button', function() {
+				$.UIHideSheet('#glonassSheet');
+			  });
+			});
+			$(function() {
+			  $.UISheet({id: 'beidouSheet'});
+			  $('#beidouSheet').find('section').append('<div style="text-align: left; padding:10px; background-color:white;background:white" id="beidoutext"/>');
+			  $('#beidouSheet').on('singletap', 'button', function() {
+				$.UIHideSheet('#beidouSheet');
+			  });
+			});
+			$(function() {
+			  $.UISheet({id: 'UTCSheet'});
+			  $('#UTCSheet').find('section').append('<div style="text-align: left; padding:10px; background-color:white;background:white" id="utctext"/>');
+			  $('#UTCSheet').on('singletap', 'button', function() {
+				$.UIHideSheet('#UTCSheet');
+			  });
+			});
+			$(function() {
+			  $.UISheet({id: 'localSheet'});
+			  $('#localSheet').find('section').append('<div style="text-align: left;padding:10px;  background-color:white;background:white" id="localtext"/>');
+			  $('#localSheet').on('singletap', 'button', function() {
+				$.UIHideSheet('#localSheet');
+			  });
+			});
+			$(function() {
+			  $.UISheet({id: 'MJDSheet'});
+			  $('#MJDSheet').find('section').append('<div style="text-align: left; padding:10px; background-color:white;background:white" id="mjdtext"/>');
+			  $('#MJDSheet').on('singletap', 'button', function() {
+				$.UIHideSheet('#MJDSheet');
+			  });
+			});
+			$(function() {
+			  $.UISheet({id: 'STT1Sheet'});
+			  $('#STT1Sheet').find('section').append('<div style="text-align: left; padding:10px; background-color:white;background:white" id="stt1text"/>');
+			  $('#STT1Sheet').on('singletap', 'button', function() {
+				$.UIHideSheet('#STT1Sheet');
+			  });
+			});
+			$(function() {
+			  $.UISheet({id: 'STT2Sheet'});
+			  $('#STT2Sheet').find('section').append('<div style="text-align: left; padding:10px; background-color:white;background:white" id="stt2text"/>');
+			  $('#STT2Sheet').on('singletap', 'button', function() {
+				$.UIHideSheet('#STT2Sheet');
+			  });
+			});
+
+			$(function() {
+			  $.UISheet({id: 'datumSheet'});
+			  $('#datumSheet').find('section').append(" <div style='background-color:white;background:white'> Date to change <br> <input onblur='setResultDate(this.value)' class='dateInputBox' type='date' id='date_input'/></div>");
+			  $('.dateInputBox').click().focus();
+			  $('#datumSheet').on('singletap', 'button', function() {
+				$.UIHideSheet('#datumSheet');
+			  });
+			});
+
+			function setResultDate(d) {
+				var dater = d.split('-');
+				var yearr = dater[0];
+				var monthr = parseInt(dater[1]);
+				var dayr = dater[2];
+				lastdate.setYear(yearr);
+				lastdate.setMonth(monthr-1);
+				lastdate.setDate(dayr);
+			}
+
+			$(function() {
+			  $.UISheet({id: 'timeSheet'});
+			  $('#timeSheet').find('section').append(" <div onblur='setResultTime(this.value)' style='background-color:white;background:white'> Time to change <br> <input  class='timeInputBox' type='time' id='time_input'/></div>");
+			  $('#timeSheet').on('singletap', 'button', function() {
+				$.UIHideSheet('#timeSheet');
+			  });
+			});
+
+			function setResultTime(t) {
+				var timet = t.split(':');
+				var hourr = parseInt(timet[0]);
+				var minr = parseInt(timet[1]);
+				lastdate.setHours(hourr);
+				lastdate.setMinutes(minr);
+			};
+
+
+			$(function() {
+			  $.UISheet({id: 'datumSheetUTC'});
+			  $('#datumSheetUTC').find('section').append(" <div style= 'background-color:white;background:white'> Date to change <br><input onblur='setResultDate(this.value)' class='dateInputBoxUTC' type='date' id='date_input_utc'/></div>");
+			  $('.dateInputBoxUTC').click().focus();
+			  $('#datumSheetUTC').on('singletap', 'button', function() {
+				$.UIHideSheet('#datumSheetUTC');
+			  });
+			});
+
+			$(function() {
+			  $.UISheet({id: 'timeSheetUTC'});
+			  $('#timeSheetUTC').find('section').append(" <div style= 'background-color:white;background:white'> Time to change <br><input onblur='setResultTime(this.value)' class='timeInputBoxUTC' type='time' id='time_input_utc'/></div>");
+			  $('#timeSheetUTC').on('singletap', 'button', function() {
+				$.UIHideSheet('#timeSheetUTC');
+			  });
+			});
+
+			$(function() {
+			  $.UISheet({id: 'GPSChangeSheet'});
+			  var x = document.getElementById("GPSChangeSheet");
+				x.addEventListener("blur", myBlurFunction, true);
+			   $('#GPSChangeSheet').find('section').append("<div  style= 'background-color:white;background:white'><TABLE  border='10' cellPadding='0' cellSpacing='0'><tr><td> <INPUT  class='einheit' value='week' readonly> </td> </tr><tr><td> <INPUT class='wert' id='GPS_weeke' > </td></tr><tr><td> <INPUT class='einheit' value='day' readonly> </td></tr><tr><td> <INPUT  class='wert' id='GPS_daye' readonly> </td></tr><tr><td> <INPUT class='einheit' value='sec' readonly> </td></tr><tr><td> <INPUT class='wert' id='GPS_seconde'  > </td></tr></TABLE></div>");
+			  $('#GPSChangeSheet').on('singletap', 'button', function() {
+				$.UIHideSheet('#GPSChangeSheet');
+			  });
+			});
+
+
+
+			function myBlurFunction() {
+			    setEditedDate();
+			}
+
+			function setEditedDate() {
+				if(timestate==0){
+					return;
+				}
+				var week=document.getElementById('GPS_weeke').value;
+				var sec=document.getElementById('GPS_seconde').value;
+
+				var now=getGPSDate(week, sec);
+				lastdate=now;
+			};
+
+
+
+
+
+			 $(document).ready(function(){
+			      $('#gpstext').load('text/gps.txt');
+			      $('#glonasstext').load('text/glonass.txt');
+			      $('#galileotext').load('text/galileo.txt');
+			      $('#beidoutext').load('text/beidou.txt');
+			      $('#localtext').load('text/local.txt');
+			      $('#utctext').load('text/utc.txt');
+			      $('#mjdtext').load('text/mjd.txt');
+			      $('#stt1text').load('text/stt1.txt');
+			      $('#stt2text').load('text/stt2.txt');
+
+             });
+
+
+
+		</script>
+
+
+
+
+
+	</body>
+</html>
+

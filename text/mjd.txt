@@ -1,0 +1,6 @@
+<h3><b>MJD</b></h3> 
+Modifizierte Julianische Datum starts 17. November 1858<br>
+(MJD-40587)*86400 ergibt die Unix-Zeit (Anzahl der Sekunden seit dem 1. Januar 1970 UTC)<br>
+genähert um die Schaltsekunden<br>
+
+

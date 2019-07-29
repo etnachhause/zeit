@@ -1,0 +1,38 @@
+{
+  "name": "zeit2",
+  "short_name": "Zeit",
+  "description": "my first zeit PWA",
+  "start_url": "index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "lang": "de-de",
+
+  "icons": [
+  {
+      "src": "bilder/time_120.png",
+      "sizes": "128x128",
+      "type": "image/png"
+   },
+   {
+         "src": "bilder/time_57.png",
+         "sizes": "57x57",
+         "type": "image/png"
+   },
+   {
+         "src": "bilder/time_72.png",
+         "sizes": "72x72",
+         "type": "image/png"
+   },
+   {
+         "src": "bilder/time_144.png",
+         "sizes": "144x144",
+         "type": "image/png"
+   },
+   {
+         "src": "bilder/time_180.png",
+         "sizes": "180x180",
+         "type": "image/png"
+   }
+   ]
+   
+}

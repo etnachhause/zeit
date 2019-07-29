@@ -1,0 +1,7 @@
+<h3><b>Startime 2</b></h3> 
+Star Trek time refering to TNG-BASE 2323<br>
+one year is splitted in 1000 parts<br>
+one year consists of 365.2564 days<br>
+
+
+

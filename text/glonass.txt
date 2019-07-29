@@ -1,0 +1,11 @@
+<h3><b>Glonass</b></h3> 
+Glonass-Time starts 6. January 1980 at 00:00:00<br>
+Glonass second (seconds of day)<br>
+Glonass day (Day number 1 to 1461)<br>
+within a four year interval starting on january 1st<br>
+of the last leap year<br>
+according to Moscow<br>
+decree time<br>
+
+
+

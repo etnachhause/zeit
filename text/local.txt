@@ -1,0 +1,7 @@
+<h3><b>Local</b></h3> 
+Local-Time depending on the position of the device<br>
+refering to UTC or GMT<br>
+
+
+
+

@@ -1,0 +1,8 @@
+<h3><b>Beidou</b></h3> 
+Beidou-Time BDT starts 1. January 2006 at 00:00:00<br>
+Beidou week (since 1. January 2006 at 00:00:00)<br>
+Beidou second (seconds of week) 0-604800<br>
+without leap seconds
+
+
+
